@@ -22,7 +22,7 @@ btnNavEl.addEventListener("click", function () {
 /*        section-question        */
 /**********************************/
 btnIconEls.forEach(function (btnIconEl, index) {
-  btnIconEl.addEventListener("click", function () {
+  btnIconEl.addEventListener("click", function (e) {
     accItemEls[index].classList.toggle("item-open");
   });
 });
@@ -46,6 +46,7 @@ allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
     e.preventDefault();
     const href = this.getAttribute("href");
+    console.log(href);
 
     if (href === "#") {
       window.scrollTo({
@@ -59,6 +60,8 @@ allLinks.forEach(function (link) {
       sectionEl.scrollIntoView({
         behavior: "smooth",
       });
+    } else {
+      window.location.href = href;
     }
 
     if (link.classList.contains("nav__link")) {
@@ -91,12 +94,11 @@ const handleHover = function (e) {
     const link = e.target;
     const siblings = link.closest(".nav").querySelectorAll(".nav__link");
     const logo = link.closest(".header").querySelector(".logo");
-    console.log(logo);
 
     siblings.forEach((el) => {
       if (el !== link) el.style.opacity = this;
     });
-    logo.style.opacity = this;
+    // logo.style.opacity = this; //logo的圖變透明
   }
 };
 

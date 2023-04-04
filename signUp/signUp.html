@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <link rel="stylesheet" href="signUpStyle.css" />
+  </head>
+  <body>
+    <div class="background">
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+
+    <form action="">
+      <h3 class="heading-primary">Sign up</h3>
+
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="username"
+        id="username"
+        name="useranme"
+        placeholder="Enter username"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="password"
+        id="password"
+        name="password"
+        placeholder="Enter password"
+        required
+      />
+
+      <label for="name">姓名</label>
+      <input
+        class="name"
+        type="text"
+        placeholder="貓貓貓"
+        name="name"
+        id="name"
+        required
+      />
+
+      <label for="phone">Phone</label>
+      <input
+        type="tel"
+        class="phone"
+        id="phone"
+        name="phone"
+        placeholder="0995-275-871"
+        pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        class="email"
+        type="email"
+        placeholder="cat@exaple.com"
+        name="email"
+        id="email"
+        required
+      />
+
+      <button class="btn-login">Sign up</button>
+
+      <div class="socail grid">
+        <div>
+          <a href="../index.html" class="btn-icon btn--full flex">
+            <ion-icon class="socail-icon" name="home-outline"></ion-icon>
+            <p>首頁</p>
+          </a>
+        </div>
+
+        <div>
+          <a href="../login/login.html" class="btn-icon btn--cat flex">
+            <ion-icon class="socail-icon" name="paw-outline"></ion-icon>
+            <p>返回</p>
+          </a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
