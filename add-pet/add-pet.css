@@ -1,0 +1,81 @@
+form {
+  padding: 4.8rem 3.2rem;
+}
+
+label {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-right: 5rem;
+  width: 10rem;
+}
+
+.form-grid {
+  row-gap: 3rem;
+}
+
+.form-flex {
+  display: flex;
+  align-items: center;
+}
+
+.input-text,
+.input-textarea {
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 1rem;
+  padding: 1.2rem 1.6rem;
+}
+
+.input-text {
+  height: 5rem;
+  width: 100%;
+}
+
+.input-textarea {
+  height: 10rem;
+  width: 50%;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  padding: 0.6rem 2.4rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn--cat,
+.btn--cat:link,
+.btn--cat:visited {
+  background-color: #4a3017;
+  color: #f4e8dc;
+}
+
+.btn--cat:hover,
+.btn--cat:active {
+  background-color: #f5ebe0;
+  color: #444;
+  box-shadow: inset 0 0 0 3px #7b7670;
+}
+
+.btn--full,
+.btn--full:link,
+.btn--full:visited {
+  background-color: #b1814b;
+  color: #eee;
+}
+.btn--full:hover,
+.btn--full:active {
+  background-color: #96561e;
+}
+
+#formFile img {
+  width: 10rem;
+  height: 10rem;
+}

@@ -1,3 +1,5 @@
+"use strict";
+
 const btnNavEl = document.querySelector(".btn__mobile-nav");
 const headerEl = document.querySelector(".header");
 
@@ -71,6 +73,22 @@ allLinks.forEach(function (link) {
 });
 
 /**********************************/
+/*         Sticky navigation      */
+/**********************************/
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) document.body.classList.add("sticky");
+  else document.body.classList.remove("sticky");
+};
+const headerObs = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${headerHeight}px`,
+});
+
+headerObs.observe(sectionCatEl);
+/**********************************/
 /*          Menu animation        */
 /**********************************/
 const handleHover = function (e) {
@@ -88,23 +106,6 @@ const handleHover = function (e) {
 
 nav.addEventListener("mouseover", handleHover.bind(0.5));
 nav.addEventListener("mouseout", handleHover.bind(1));
-
-/**********************************/
-/*         Sticky navigation      */
-/**********************************/
-
-const stickyNav = function (entries) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) document.body.classList.add("sticky");
-  else document.body.classList.remove("sticky");
-};
-const headerObs = new IntersectionObserver(stickyNav, {
-  root: null,
-  threshold: 0,
-  rootMargin: `-${headerHeight}px`,
-});
-
-headerObs.observe(sectionCatEl);
 /**********************************/
 /*         section-animation      */
 /**********************************/

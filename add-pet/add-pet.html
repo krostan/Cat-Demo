@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/head-nav.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="add-pet.css" />
+    <link rel="stylesheet" href="../queries.css" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="#">
+        <!-- <img src="" alt="Logo" class="logo" /> -->
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a href="../index.html#section-1" class="nav__link">養貓好處</a>
+          </li>
+          <li class="nav__item">
+            <a href="../index.html#section-4" class="nav__link">養貓需知</a>
+          </li>
+          <li class="nav__item">
+            <a href="../add-pet/add-pet.html" class="nav__link">送養寵物</a>
+          </li>
+          <li class="nav__item">
+            <a href="../list-pets/list-pets.html" class="nav__link">領養寵物</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="../member/member.html" class="nav__link nav-cta"
+              >會員專區</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- MOBILE NAVIGATION -->
+      <button class="btn__mobile-nav">
+        <ion-icon class="icon__mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon__mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="my-5 fw-bold">寵物資料</h1>
+        <hr />
+
+        <form
+          action="#"
+          th:action="@{/pets/save}"
+          th:Object="${pet}"
+          method="POST"
+          class="fs-2"
+          enctype="multipart/form-data"
+        >
+          <!-- row row-cols-2 gap-4 text-center align-items-center -->
+          <div class="d-grid form-grid">
+            <input type="hidden" th:field="*{petId}" />
+
+            <div class="form-flex">
+              <label for="petName" class="form-label">寵物名稱</label>
+
+              <input
+                type="text"
+                th:field="*{petName}"
+                class="w-25 input-text"
+                id="petName"
+                placeholder="貓貓貓"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="breed" class="form-label">品種</label>
+
+              <input
+                type="text"
+                th:field="*{breed}"
+                class="w-25 input-text"
+                id="breed"
+                placeholder="金吉拉"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="gender" class="form-label">性別</label>
+
+              <input
+                type="text"
+                th:field="*{gender}"
+                class="w-25 input-text"
+                id="gender"
+                placeholder="性別"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="coatColor" class="form-label">毛色</label>
+
+              <input
+                type="text"
+                th:field="*{coatColor}"
+                class="w-25 input-text"
+                id="coatColor"
+                placeholder="毛色"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="age" class="form-label">年齡</label>
+
+              <input
+                type="text"
+                th:field="*{age}"
+                class="w-25 input-text"
+                id="age"
+                placeholder="1"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="location" class="form-label">所在地</label>
+
+              <input
+                type="text"
+                th:field="*{location}"
+                class="w-25 input-text"
+                id="location"
+                placeholder="桃園"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="species" class="form-label">種類</label>
+
+              <input
+                type="text"
+                th:field="*{species}"
+                class="w-25 input-text"
+                id="species"
+                placeholder="種類"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="size" class="form-label">體型</label>
+
+              <input
+                type="text"
+                th:field="*{size}"
+                class="w-25 input-text"
+                id="size"
+                placeholder="體型"
+              />
+            </div>
+
+            <div class="form-flex">
+              <label for="image" class="form-label">圖片</label>
+              <input
+                type="file"
+                class="w-25 input-text"
+                id="image"
+                name="image"
+                accept=".jpg"
+                multiple
+                onchange="previewMultiple(event)"
+              />
+              <div id="formFile" class="mt-3"></div>
+            </div>
+
+            <div class="form-flex">
+              <label for="quest" class="form-label">條件</label>
+
+              <!-- <input
+                type="text"
+                th:field="*{quest}"
+                class="w-25 input-text"
+                id="quest"
+                placeholder="條件"
+              /> -->
+              <!--  d-inline-block -->
+              <textarea
+                class="input-textarea"
+                placeholder=""
+                id="quest"
+                th:field="*{quest}"
+              ></textarea>
+            </div>
+          </div>
+
+          <div
+            class="d-flex justify-content-center align-items-center gap-5 mt-3 me-5"
+          >
+            <button type="submit" class="btn btn--cat">儲存</button>
+            <a
+              th:href="@{/pets/list}"
+              href="#"
+              class="nav__link nav-cta text-center"
+              >返回</a
+            >
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container grid--footer">
+        <div class="logo-col">
+          <a href="#">
+            <!-- <img src="img/logo-white.png" alt="Logo" class="footer__logo" /> -->
+          </a>
+          <ul class="footer__links">
+            <li>
+              <a class="footer__link" href="#">
+                <ion-icon class="footer__icon" name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a class="footer__link" href="#">
+                <ion-icon class="footer__icon" name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a class="footer__link" href="#">
+                <ion-icon class="footer__icon" name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="address-col">
+          <p class="footer-heading">聯絡我們</p>
+          <address class="contacts">
+            <p class="address">貓貓市貓貓區貓貓路945號</p>
+            <p>
+              <a class="footer__link" href="tel:9527-5871">9527-5871</a>
+              <br />
+              <a class="footer__link" href="mailto:cat@catmeals.com"
+                >cat@catmeals.com</a
+              >
+            </p>
+          </address>
+        </div>
+        <nav class="nav-col">
+          <p class="footer-heading">貓貓相關</p>
+          <ul class="foot-nav">
+            <li>
+              <a class="footer__link" href="#">注意事項</a>
+            </li>
+
+            <li>
+              <a class="footer__link" href="#">認養貓咪</a>
+            </li>
+
+            <li>
+              <a class="footer__link" href="#">貓餐介紹</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="copyright">
+          Copyright &copy; 2023 by Leo Fan. All right s reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script defer src="../script.js"></script>
+    <script defer src="../js/displayFilesImages.js"></script>
+  </body>
+</html>

@@ -24,6 +24,7 @@
 
     <link rel="stylesheet" href="signUpStyle.css" />
   </head>
+
   <body>
     <div class="background">
       <div class="ball"></div>
@@ -31,7 +32,7 @@
     </div>
 
     <form action="">
-      <h3 class="heading-primary">Sign up</h3>
+      <h3 class="heading-primary">會員資料</h3>
 
       <label for="username">Username</label>
       <input
@@ -69,8 +70,19 @@
         class="phone"
         id="phone"
         name="phone"
-        placeholder="0995-275-871"
-        pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+        placeholder="0995275871"
+        pattern="[0-9]{4}[0-9]{3}[0-9]{3}"
+        required
+      />
+
+      <label for="birthday">出生年月日</label>
+      <input
+        type="date"
+        class="birthday"
+        id="birthday"
+        name="birthday"
+        min="1900-01-01"
+        max="2019-01-01"
         required
       />
 
@@ -81,6 +93,7 @@
         placeholder="cat@exaple.com"
         name="email"
         id="email"
+        pattern="^[A-Za-z0-9-_\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"
         required
       />
 
